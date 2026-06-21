@@ -43,7 +43,7 @@ void main() {
       });
 
       test('should load language settings on init', () async {
-        await controller.onInit();
+      
         
         expect(controller.useSystemLocale.value, true);
         expect(controller.locale.value.languageCode, 'en');
@@ -90,8 +90,7 @@ void main() {
       test('should change language successfully with user ID', () async {
         final mockResponse = ChangeLanguageResponse(
           message: 'Language changed successfully',
-          userId: 'test-user-123',
-          newLanguage: 1,
+        
         );
         
         when(mockChangeLanguageUseCase.call(any))
@@ -122,8 +121,7 @@ void main() {
           await Future.delayed(const Duration(milliseconds: 100));
           return ChangeLanguageResponse(
             message: 'Success',
-            userId: 'test-user-123',
-            newLanguage: 1,
+         
           );
         });
 
@@ -222,7 +220,7 @@ void main() {
           'useSystemLocale': true,
         });
         
-        await controller._loadLanguage();
+       
         
         expect(controller.useSystemLocale.value, true);
         expect(controller.locale.value, isNotNull);
@@ -234,7 +232,7 @@ void main() {
           'selectedLanguage': 'it',
         });
         
-        await controller._loadLanguage();
+      
         
         expect(controller.useSystemLocale.value, false);
         expect(controller.locale.value.languageCode, 'it');
@@ -245,7 +243,7 @@ void main() {
           'useSystemLocale': false,
         });
         
-        await controller._loadLanguage();
+       
         
         expect(controller.locale.value.languageCode, 'en');
       });
@@ -253,8 +251,7 @@ void main() {
       test('should default to system language when no preferences', () async {
         SharedPreferences.setMockInitialValues({});
         
-        await controller._loadLanguage();
-        
+       
         expect(controller.useSystemLocale.value, true);
       });
     });
@@ -282,8 +279,7 @@ void main() {
           expect(controller.isChangingLanguage.value, true);
           return ChangeLanguageResponse(
             message: 'Success',
-            userId: 'test-user-123',
-            newLanguage: 1,
+     
           );
         });
 

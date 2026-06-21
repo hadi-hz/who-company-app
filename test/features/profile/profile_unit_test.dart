@@ -144,7 +144,7 @@ void main() {
           id: 'test-user-123',
           name: 'Jane',
           lastname: 'Smith',
-          message: 'Profile updated successfully',
+       
         );
 
         when(mockUpdateUserProfile.call(
@@ -203,7 +203,7 @@ void main() {
             id: 'test-user-123',
             name: 'Jane',
             lastname: 'Smith',
-            message: 'Updated',
+            
           );
         });
 
